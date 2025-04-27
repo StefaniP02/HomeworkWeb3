@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <header class="header-signup-login">
+    <div id="message"></div>
+    <h1>Notes in the cloud</h1>
+    <h2>Dashboard</h2>
+  </header>
+
+  <main class="main-signup-login">
+    <div class="login-signup-form">
+      <p>Welcome! This is a secured page.</p>
+      <a href="/logout" class="submit-button" style="text-align: center;">Log out</a>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const messageBox = document.getElementById('message');
+    const error = params.get('error');
+    const success = params.get('success');
+
+    if (error) {
+      messageBox.innerText = decodeURIComponent(error);
+      messageBox.classList.add('error');
+    }
+
+    if (success) {
+      messageBox.innerText = decodeURIComponent(success);
+      messageBox.classList.add('success');
+    }
+  </script>
+</body>
+
+</html>
